@@ -14,6 +14,6 @@ Pod::Spec.new do |spec|
   spec.social_media_url = "https://twitter.com/raphaelschaad"
   spec.platform         = :ios, "7.0"
   spec.source           = { :git => "https://github.com/raphaelschaad/RSPlayPauseButton.git", :tag => "1.0.0" }
-  spec.source_files     = "RSPlayPauseButtonDemo/RSPlayPauseButton", "RSPlayPauseButtonDemo/RSPlayPauseButton/**/*.{h,m}"
+  spec.source_files     = "RSPlayPauseButtonDemo/RSPlayPauseButton/*.{h,m}"
   spec.requires_arc     = true
 end
