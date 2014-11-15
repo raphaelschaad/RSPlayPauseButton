@@ -1,10 +1,10 @@
-![RSPlayPauseButton Logotype](https://raw.githubusercontent.com/raphaelschaad/RSPlayPauseButton/master/Images/rsplaypausebutton-logotype.png)
+# RSPlayPauseButton
 
-RSPlayPauseButton is a `UIControl` button with a play/pause icon that nicely morphs between the two.
+A `UIControl` with a play/pause icon that nicely morphs between the two.
 
 ![RSPlayPauseButton Morph Animation](https://raw.githubusercontent.com/raphaelschaad/RSPlayPauseButton/master/Images/rsplaypausebutton-morph-animation.gif)
 
-You can choose from [two morphing styles](http://vimeo.com/raphaelschaad/rsplaypausebutton): split and split and rotate.
+You can choose from [two morphing styles](http://vimeo.com/raphaelschaad/rsplaypausebutton): Split, and Split & Rotate.
 
 If using CocoaPods, the quickest way to try it out is to type this on the command line:
 
@@ -23,14 +23,12 @@ In your code, `#import "RSPlayPauseButton.h"`, create the control, and setup an 
 ```objective-c
 	// ... e.g. in `-viewDidLoad:` ...
     RSPlayPauseButton *playPauseButton = [[RSPlayPauseButton alloc] init];
-    [self.playPauseButton addTarget:self action:@selector(playPauseButtonDidPress:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:self.playPauseButton];
+    [playPauseButton addTarget:self action:@selector(playPauseButtonDidPress:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:playPauseButton];
 }
 
-- (void)playPauseButtonDidPress:(id)sender {
-    if ([self.playPauseButton isEqual:sender]) {
-        [self.playPauseButton setPaused:!self.playPauseButton.isPaused animated:YES];
-    }
+- (void)playPauseButtonDidPress:(RSPlayPauseButton *)playPauseButton {
+    [playPauseButton setPaused:!playPauseButton.isPaused animated:YES];
 }
 ```
 
