@@ -273,9 +273,12 @@ static const CGPoint p8 = {kPauseLineWidth + kPauseLinesSpace, kPauseLineHeight}
             fromPath = self.isPaused ? self.pauseBezierPath : self.playRotateBezierPath;
             toPath = self.isPaused ? self.playRotateBezierPath : self.pauseRotateBezierPath;
         } else {
-            // Unsupported animation style
+            // Unsupported animation style -- fall back to using default animation style's "to path" but don't animate to it.
+            toPath = self.isPaused ? self.playBezierPath : self.pauseBezierPath;
+            animated = NO;
         }
         
+        NSString * const kMorphAnimationKey = @"morphAnimationKey";
         if (animated) {
             // Morph between the two states.
             CABasicAnimation *morphAnimation = [CABasicAnimation animationWithKeyPath:@"path"];
@@ -291,8 +294,12 @@ static const CGPoint p8 = {kPauseLineWidth + kPauseLinesSpace, kPauseLineHeight}
             morphAnimation.fromValue = (__bridge id)fromPath.CGPath;
             morphAnimation.toValue = (__bridge id)toPath.CGPath;
             
-            [self.playPauseShapeLayer addAnimation:morphAnimation forKey:nil];
+            [self.playPauseShapeLayer addAnimation:morphAnimation forKey:kMorphAnimationKey];
         } else {
+            // Clear out potential existing morph animations.
+            [self.playPauseShapeLayer removeAnimationForKey:kMorphAnimationKey];
+            
+            // Snap to new state.
             self.playPauseShapeLayer.path = toPath.CGPath;
         }
     }
