@@ -44,8 +44,8 @@
     [self.view addSubview:self.label];
     
     if (!self.segmentedControl) {
-        self.segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"Split", @"Split and Rotate"]];
-        self.segmentedControl.selectedSegmentIndex = self.playPauseButton.animationStyle;
+        self.segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"None", @"Split", @"Split & Rotate"]];
+        self.segmentedControl.selectedSegmentIndex = 0;
         [self.segmentedControl addTarget:self action:@selector(segmentedControlDidChangeValue:) forControlEvents:UIControlEventValueChanged];
     }
     [self.view addSubview:self.segmentedControl];
@@ -76,7 +76,8 @@
 - (void)playPauseButtonDidPress:(id)sender
 {
     if ([self.playPauseButton isEqual:sender]) {
-        [self.playPauseButton setPaused:!self.playPauseButton.isPaused animated:YES];
+        BOOL animated = self.segmentedControl.selectedSegmentIndex != 0;
+        [self.playPauseButton setPaused:!self.playPauseButton.isPaused animated:animated];
     }
 }
 
@@ -84,7 +85,11 @@
 - (void)segmentedControlDidChangeValue:(id)sender
 {
     if ([self.segmentedControl isEqual:sender]) {
-        self.playPauseButton.animationStyle = self.segmentedControl.selectedSegmentIndex;
+        if (self.segmentedControl.selectedSegmentIndex == 1) {
+            self.playPauseButton.animationStyle = RSPlayPauseButtonAnimationStyleSplit;
+        } else if (self.segmentedControl.selectedSegmentIndex == 2) {
+            self.playPauseButton.animationStyle = RSPlayPauseButtonAnimationStyleSplitAndRotate;
+        }
     }
 }
 
