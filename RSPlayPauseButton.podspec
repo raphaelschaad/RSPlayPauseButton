@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name             = "RSPlayPauseButton"
-  spec.version          = "1.0.0"
+  spec.version          = "1.0.1"
   spec.summary          = "Play/pause button that nicely morphs between the two states"
   spec.description      = <<-DESC
                         A UIControl with a play/pause icon that nicely morphs between the two.
@@ -13,7 +13,7 @@ Pod::Spec.new do |spec|
   spec.author           = { "Raphael Schaad" => "raphael.schaad@gmail.com" }
   spec.social_media_url = "https://twitter.com/raphaelschaad"
   spec.platform         = :ios, "7.0"
-  spec.source           = { :git => "https://github.com/raphaelschaad/RSPlayPauseButton.git", :tag => "1.0.0" }
+  spec.source           = { :git => "https://github.com/raphaelschaad/RSPlayPauseButton.git", :tag => "1.0.1" }
   spec.source_files     = "RSPlayPauseButtonDemo/RSPlayPauseButton/*.{h,m}"
   spec.requires_arc     = true
 end
