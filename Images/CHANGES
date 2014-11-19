@@ -1,0 +1,9 @@
+= 1.0.1 (2014-11-19)
+
+ * Add Animation Style 'None' to demo project and make it the default. (Raphael Schaad)
+
+ * Fix bug where a unsupported transition style would lead to no change in state at all. (Raphael Schaad)
+
+= 1.0.0 (2014-11-15)
+
+ * Initial commit (Raphael Schaad)
