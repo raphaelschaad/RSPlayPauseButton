@@ -32,6 +32,6 @@ In your code, `#import "RSPlayPauseButton.h"`, create the control, and setup an 
 }
 ```
 
-Since I release RSPlayPauseButton as free and unencumbered software into the public domain you can do with it whatever you want including using it in any app on the App Store.
+Since I release RSPlayPauseButton as free and unencumbered software into the public domain you can do with it whatever you want including using it in any app on the App Store. I released this code originally as a [Gist in early 2014](https://gist.github.com/raphaelschaad/9734463) and since then [Google adopted the Split style](http://littlebigdetails.com/post/119360573466/youtube-the-play-button-smoothly-animates-into) In mid-2015 on YouTube.com.
 
 Feel free to reach out to [@RaphaelSchaad](https://twitter.com/raphaelschaad) and say hi.
