@@ -28,4 +28,14 @@ typedef NS_ENUM(NSUInteger, RSPlayPauseButtonAnimationStyle) {
 // Style
 @property (nonatomic, assign) RSPlayPauseButtonAnimationStyle animationStyle; // Default is `RSPlayPauseButtonAnimationStyleSplit`
 
+/**
+ Denotes whether or not to display the border circle. Defaults to NO.
+ */
+@property (nonatomic, assign) BOOL hasBorderCircle;
+
+/**
+ Color of the control (and border). By default this adheres to tint color.
+ */
+@property (nonatomic, strong) UIColor *fillColor;
+
 @end

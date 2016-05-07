@@ -229,17 +229,19 @@ static const CGPoint p8 = {kPauseLineWidth + kPauseLinesSpace, kPauseLineHeight}
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    
-    if (!self.borderShapeLayer) {
-        self.borderShapeLayer = [[CAShapeLayer alloc] init];
-        // Adjust for line width.
-        CGRect borderRect = CGRectInset(self.bounds, ceil(kBorderWidth / 2), ceil(kBorderWidth / 2));
-        self.borderShapeLayer.path = [UIBezierPath bezierPathWithOvalInRect:borderRect].CGPath;
-        self.borderShapeLayer.lineWidth = kBorderWidth;
-        self.borderShapeLayer.fillColor = [UIColor clearColor].CGColor;
-        [self.layer addSublayer:self.borderShapeLayer];
+
+    if (self.hasBorderCircle) {
+        if (!self.borderShapeLayer) {
+            self.borderShapeLayer = [[CAShapeLayer alloc] init];
+            // Adjust for line width.
+            CGRect borderRect = CGRectInset(self.bounds, ceil(kBorderWidth / 2), ceil(kBorderWidth / 2));
+            self.borderShapeLayer.path = [UIBezierPath bezierPathWithOvalInRect:borderRect].CGPath;
+            self.borderShapeLayer.lineWidth = kBorderWidth;
+            self.borderShapeLayer.fillColor = [UIColor clearColor].CGColor;
+            [self.layer addSublayer:self.borderShapeLayer];
+        }
+        self.borderShapeLayer.strokeColor = self.fillColor.CGColor ? self.fillColor.CGColor : self.tintColor.CGColor;
     }
-    self.borderShapeLayer.strokeColor = self.tintColor.CGColor;
     
     if (!self.playPauseShapeLayer) {
         self.playPauseShapeLayer = [[CAShapeLayer alloc] init];
@@ -253,7 +255,7 @@ static const CGPoint p8 = {kPauseLineWidth + kPauseLinesSpace, kPauseLineHeight}
         self.playPauseShapeLayer.path = path.CGPath;
         [self.layer addSublayer:self.playPauseShapeLayer];
     }
-    self.playPauseShapeLayer.fillColor = self.tintColor.CGColor;
+    self.playPauseShapeLayer.fillColor = self.fillColor.CGColor ? self.fillColor.CGColor : self.tintColor.CGColor;
 }
 
 
