@@ -116,8 +116,8 @@ static const CGPoint p8 = {kPauseLineWidth + kPauseLinesSpace, kPauseLineHeight}
     if (!_playBezierPath) {
         _playBezierPath = [UIBezierPath bezierPath];
         
-        const CGFloat kPauseLinesHalfSpace = floor(kPauseLinesSpace / 2);
-        const CGFloat kPauseLineHalfHeight = floor(kPauseLineHeight / 2);
+        const CGFloat kPauseLinesHalfSpace = kPauseLinesSpace / 2;
+        const CGFloat kPauseLineHalfHeight = kPauseLineHeight / 2;
         
         CGPoint _p1 = CGPointMake(p1.x + kPlayTriangleOffsetX, p1.y);
         CGPoint _p2 = CGPointMake(p2.x + kPauseLinesHalfSpace, p2.y);
@@ -165,7 +165,7 @@ static const CGPoint p8 = {kPauseLineWidth + kPauseLinesSpace, kPauseLineHeight}
     if (!_playRotateBezierPath) {
         _playRotateBezierPath = [UIBezierPath bezierPath];
         
-        const CGFloat kPauseLineHalfHeight = floor(kPauseLineHeight / 2);
+        const CGFloat kPauseLineHalfHeight = kPauseLineHeight / 2;
         
         CGPoint _p1, _p2, _p3, _p4, _p5, _p6, _p7, _p8;
         _p1 = _p2 = _p5 = _p6 = CGPointMake(p6.x + kPlayTriangleTipOffsetX, kPauseLineHalfHeight);
@@ -243,8 +243,8 @@ static const CGPoint p8 = {kPauseLineWidth + kPauseLinesSpace, kPauseLineHeight}
     if (!self.playPauseShapeLayer) {
         self.playPauseShapeLayer = [[CAShapeLayer alloc] init];
         CGRect playPauseRect = CGRectZero;
-        playPauseRect.origin.x = floor(((self.bounds.size.width) - (kPauseLineWidth + kPauseLinesSpace + kPauseLineWidth)) / 2);
-        playPauseRect.origin.y = floor(((self.bounds.size.height) - (kPauseLineHeight)) / 2);
+        playPauseRect.origin.x = ((self.bounds.size.width) - (kPauseLineWidth + kPauseLinesSpace + kPauseLineWidth)) / 2;
+        playPauseRect.origin.y = ((self.bounds.size.height) - (kPauseLineHeight)) / 2;
         playPauseRect.size.width = kPauseLineWidth + kPauseLinesSpace + kPauseLineWidth + kPlayTriangleTipOffsetX;
         playPauseRect.size.height = kPauseLineHeight;
         self.playPauseShapeLayer.frame = playPauseRect;
