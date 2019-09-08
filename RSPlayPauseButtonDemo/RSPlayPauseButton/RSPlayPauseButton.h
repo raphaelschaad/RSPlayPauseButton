@@ -22,7 +22,7 @@ typedef NS_ENUM(NSUInteger, RSPlayPauseButtonAnimationStyle) {
 @interface RSPlayPauseButton : UIControl
 
 // State
-@property (nonatomic, assign, getter = isPaused) BOOL paused; // Default is `YES`; changing this way is not animated
+@property (nonatomic, assign, getter = isPaused) BOOL paused; // Default is `YES`; setting this property doesn't animate the change
 - (void)setPaused:(BOOL)paused animated:(BOOL)animated;
 
 // Style
