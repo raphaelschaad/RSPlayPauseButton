@@ -10,28 +10,21 @@
 #include <tgmath.h> // type generic math, yo: http://en.wikipedia.org/wiki/Tgmath.h#tgmath.h
 
 
-static const CGFloat kScale = 1.0;
-static const CGFloat kBorderSize = 32.0 * kScale;
-static const CGFloat kBorderWidth = 3.0 * kScale;
-static const CGFloat kSize = kBorderSize + kBorderWidth; // The total size is the border size + 2x half the border width.
-static const CGFloat kPauseLineWidth = 4.0 * kScale;
-static const CGFloat kPauseLineHeight = 15.0 * kScale;
-static const CGFloat kPauseLinesSpace = 4.0 * kScale;
-static const CGFloat kPlayTriangleOffsetX = 2.0 * kScale;
-static const CGFloat kPlayTriangleTipOffsetX = 2.0 * kScale;
-
-static const CGPoint p1 = {0.0, 0.0};                          // line 1, top left
-static const CGPoint p2 = {kPauseLineWidth, 0.0};              // line 1, top right
-static const CGPoint p3 = {kPauseLineWidth, kPauseLineHeight}; // line 1, bottom right
-static const CGPoint p4 = {0.0, kPauseLineHeight};             // line 1, bottom left
-
-static const CGPoint p5 = {kPauseLineWidth + kPauseLinesSpace, 0.0};                                // line 2, top left
-static const CGPoint p6 = {kPauseLineWidth + kPauseLinesSpace + kPauseLineWidth, 0.0};              // line 2, top right
-static const CGPoint p7 = {kPauseLineWidth + kPauseLinesSpace + kPauseLineWidth, kPauseLineHeight}; // line 2, bottom right
-static const CGPoint p8 = {kPauseLineWidth + kPauseLinesSpace, kPauseLineHeight};                   // line 2, bottom left
-
-
-@interface RSPlayPauseButton ()
+@interface RSPlayPauseButton () {
+    CGFloat kScale;
+    CGFloat kBorderSize;
+    CGFloat kBorderWidth;
+    CGFloat kSizederWidth;
+    CGFloat kSize;
+    CGFloat kPauseLineWidth;
+    CGFloat kPauseLineHeight;
+    CGFloat kPauseLinesSpace;
+    CGFloat kPlayTriangleOffsetX;
+    CGFloat kPlayTriangleTipOffsetX;
+    
+    CGPoint p1, p2, p3, p4, p5, p6, p7, p8;
+    
+}
 
 @property (nonatomic, strong) CAShapeLayer *borderShapeLayer;
 @property (nonatomic, strong) CAShapeLayer *playPauseShapeLayer;
@@ -193,13 +186,35 @@ static const CGPoint p8 = {kPauseLineWidth + kPauseLinesSpace, kPauseLineHeight}
 
 #pragma mark - Life Cycle
 
-- (id)initWithFrame:(CGRect)frame
+- (instancetype)initWithSideLength:(CGFloat)length {
+    return [self initWithFrame:CGRectMake(0, 0, length, length)];
+}
+
+- (instancetype)initWithFrame:(CGRect)frame
 {
+    NSAssert(frame.size.width == frame.size.height, @"Frame size width and height must be equal!");
     self = [super initWithFrame:frame];
     if (self) {
         _paused = YES;
+                
+        kScale = frame.size.width / 35.0;
+        kBorderSize = 32.0 * kScale;
+        kBorderWidth = 3.0 * kScale;
+        kSize = kBorderSize + kBorderWidth; // The total size is the border size + 2x half the border width.
+        kPauseLineWidth = 4.0 * kScale;
+        kPauseLineHeight = 15.0 * kScale;
+        kPauseLinesSpace = 4.0 * kScale;
+        kPlayTriangleOffsetX = 2.0 * kScale;
+        kPlayTriangleTipOffsetX = 2.0 * kScale;
         
-        [self sizeToFit];
+        p1 = CGPointMake(0.0, 0.0);                          // line 1, top left
+        p2 = CGPointMake(kPauseLineWidth, 0.0);              // line 1, top right
+        p3 = CGPointMake(kPauseLineWidth, kPauseLineHeight); // line 1, bottom right
+        p4 = CGPointMake(0.0, kPauseLineHeight);             // line 1, bottom left
+        p5 = CGPointMake(kPauseLineWidth + kPauseLinesSpace, 0.0);                                // line 2, top left
+        p6 = CGPointMake(kPauseLineWidth + kPauseLinesSpace + kPauseLineWidth, 0.0);              // line 2, top right
+        p7 = CGPointMake(kPauseLineWidth + kPauseLinesSpace + kPauseLineWidth, kPauseLineHeight); // line 2, bottom right
+        p8 = CGPointMake(kPauseLineWidth + kPauseLinesSpace, kPauseLineHeight);                   // line 2, bottom left
     }
     return self;
 }
@@ -220,7 +235,7 @@ static const CGPoint p8 = {kPauseLineWidth + kPauseLinesSpace, kPauseLineHeight}
 - (CGSize)sizeThatFits:(CGSize)size
 {
     // Ignore the current size/new size by super and instead use our default size.
-    return CGSizeMake(kSize, kSize);
+    return [super sizeThatFits:size];
 }
 
 

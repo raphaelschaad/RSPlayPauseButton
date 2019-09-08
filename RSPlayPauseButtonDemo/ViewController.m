@@ -29,7 +29,7 @@
     [super viewDidLoad];
     
     if (!self.playPauseButton) {
-        self.playPauseButton = [[RSPlayPauseButton alloc] init];
+        self.playPauseButton = [[RSPlayPauseButton alloc] initWithSideLength:35];
         self.playPauseButton.hasBorderCircle = YES;
         self.playPauseButton.tintColor = [UIColor colorWithRed:0.0 green:105.0/255.0 blue:92.0/255.0 alpha:1.0];
         [self.playPauseButton addTarget:self action:@selector(playPauseButtonDidPress:) forControlEvents:UIControlEventTouchUpInside];

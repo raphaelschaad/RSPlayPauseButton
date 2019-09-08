@@ -38,4 +38,6 @@ typedef NS_ENUM(NSUInteger, RSPlayPauseButtonAnimationStyle) {
  */
 @property (nonatomic, strong) UIColor *fillColor;
 
+- (instancetype)initWithSideLength:(CGFloat)length;
+
 @end
