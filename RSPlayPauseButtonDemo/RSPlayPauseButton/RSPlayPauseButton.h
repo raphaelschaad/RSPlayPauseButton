@@ -17,7 +17,7 @@ typedef NS_ENUM(NSUInteger, RSPlayPauseButtonAnimationStyle) {
 
 //
 //  Displays a  ⃝ with either the ► (play) or ❚❚ (pause) icon and nicely morphs between the two states.
-//  It's targeted for iOS 7+ and is tintColor-aware.
+//  It's targeted at iOS 8.1+ and is tintColor-aware.
 //
 @interface RSPlayPauseButton : UIControl
 
