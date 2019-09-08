@@ -7,7 +7,6 @@
 
 
 #import "RSPlayPauseButton.h"
-#include <tgmath.h> // type generic math, yo: http://en.wikipedia.org/wiki/Tgmath.h#tgmath.h
 
 
 static const CGFloat kScale = 1.0;
