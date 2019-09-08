@@ -15,6 +15,7 @@
 		877B26A51A14A19000B5AB09 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 877B26A31A14A19000B5AB09 /* LaunchScreen.xib */; };
 		877B26B11A14A19000B5AB09 /* RSPlayPauseButtonDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 877B26B01A14A19000B5AB09 /* RSPlayPauseButtonDemoTests.m */; };
 		877B26BD1A14A24800B5AB09 /* RSPlayPauseButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 877B26BC1A14A24800B5AB09 /* RSPlayPauseButton.m */; };
+		934707212324AEE60050BBB2 /* NibInitedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9347071F2324AEE60050BBB2 /* NibInitedViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,8 @@
 		877B26B01A14A19000B5AB09 /* RSPlayPauseButtonDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RSPlayPauseButtonDemoTests.m; sourceTree = "<group>"; };
 		877B26BB1A14A24800B5AB09 /* RSPlayPauseButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSPlayPauseButton.h; sourceTree = "<group>"; };
 		877B26BC1A14A24800B5AB09 /* RSPlayPauseButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSPlayPauseButton.m; sourceTree = "<group>"; };
+		9347071E2324AEE60050BBB2 /* NibInitedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NibInitedViewController.h; sourceTree = "<group>"; };
+		9347071F2324AEE60050BBB2 /* NibInitedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NibInitedViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +91,8 @@
 				877B26991A14A19000B5AB09 /* AppDelegate.m */,
 				877B269B1A14A19000B5AB09 /* ViewController.h */,
 				877B269C1A14A19000B5AB09 /* ViewController.m */,
+				9347071E2324AEE60050BBB2 /* NibInitedViewController.h */,
+				9347071F2324AEE60050BBB2 /* NibInitedViewController.m */,
 				877B269E1A14A19000B5AB09 /* Main.storyboard */,
 				877B26A11A14A19000B5AB09 /* Images.xcassets */,
 				877B26A31A14A19000B5AB09 /* LaunchScreen.xib */,
@@ -234,6 +239,7 @@
 				877B269D1A14A19000B5AB09 /* ViewController.m in Sources */,
 				877B269A1A14A19000B5AB09 /* AppDelegate.m in Sources */,
 				877B26971A14A19000B5AB09 /* main.m in Sources */,
+				934707212324AEE60050BBB2 /* NibInitedViewController.m in Sources */,
 				877B26BD1A14A24800B5AB09 /* RSPlayPauseButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -323,7 +329,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -371,7 +377,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";

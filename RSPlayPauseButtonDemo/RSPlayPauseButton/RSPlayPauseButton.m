@@ -190,6 +190,13 @@
     return [self initWithFrame:CGRectMake(0, 0, length, length)];
 }
 
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    if (self = [super initWithCoder:aDecoder]) {
+        return [self initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+    }
+    return self;
+}
+
 - (instancetype)initWithFrame:(CGRect)frame
 {
     NSAssert(frame.size.width == frame.size.height, @"Frame size width and height must be equal!");
